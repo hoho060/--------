@@ -1,0 +1,24 @@
+<!-- views/profile.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steam Profile</title>
+  </head>
+  <body>
+    <h1>Welcome, <%= user.displayName %></h1>
+    <p>Steam ID: <%= user.id %></p>
+    <p>
+      Profile:
+      <a href="<%= user._json.profileurl %>"><%= user._json.profileurl %></a>
+    </p>
+    <img src="<%= user._json.avatarfull %>" alt="Avatar" />
+    <h2>Your Game List</h2>
+    <ul>
+      <% games.forEach(function(game) { %>
+      <li><%= game.name %></li>
+      <% }); %>
+    </ul>
+  </body>
+</html>
