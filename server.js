@@ -13,10 +13,12 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET || "your-session-secret", // 세션 비밀키
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    proxy: true,
     cookie: {
-      secure: process.env.NODE_ENV === "production",
+      secure: true,
       httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000
     }, // HTTPS 환경에 맞게 설정
   })
 );
